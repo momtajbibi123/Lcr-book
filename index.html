@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NextGen - Premium App Landing Page</title>
+    <title>LCR Book - Official Download</title>
     
     <!-- Google Fonts for Premium Look -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -47,7 +47,7 @@
             justify-content: space-between;
             align-items: center;
             background: var(--glass);
-            backdrop-filter: blur(10px); /* Blurs content behind nav */
+            backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -96,7 +96,7 @@
 
         /* --- 3. Hero Section (Full Screen) --- */
         .hero {
-            height: 100vh; /* Full Viewport Height */
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -145,7 +145,6 @@
             margin-bottom: 20px;
             font-weight: 800;
             letter-spacing: -1px;
-            /* Smooth Fade Up Animation */
             opacity: 0;
             transform: translateY(30px);
             animation: fadeUp 0.8s ease forwards 0.2s;
@@ -216,7 +215,6 @@
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: var(--transition);
-            /* Scroll Animation Init State */
             opacity: 0;
             transform: translateY(40px);
         }
@@ -251,7 +249,7 @@
             font-size: 0.95rem;
         }
 
-        /* --- 5. Floating Download Button (Text + Icon) --- */
+        /* --- 5. Floating Download Button --- */
         .floating-btn {
             position: fixed;
             bottom: 30px;
@@ -270,7 +268,6 @@
             transition: var(--transition);
             border: none;
             cursor: pointer;
-            /* Subtle Pulse Animation */
             animation: subtlePulse 3s infinite;
         }
 
@@ -286,7 +283,7 @@
             background: white;
         }
 
-        /* --- Footer --- */
+        /* Footer */
         footer {
             text-align: center;
             padding: 40px;
@@ -295,12 +292,9 @@
             border-top: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* --- Animations --- */
+        /* Animations */
         @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes subtlePulse {
@@ -309,10 +303,9 @@
             100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
         }
 
-        /* --- Responsive Design --- */
+        /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            
             .hamburger { display: flex; }
             
             .nav-links {
@@ -330,9 +323,7 @@
                 box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             }
 
-            .nav-links.active {
-                transform: translateY(0);
-            }
+            .nav-links.active { transform: translateY(0); }
             
             .floating-btn {
                 bottom: 20px;
@@ -347,7 +338,7 @@
 
     <!-- Navigation -->
     <nav>
-        <div class="logo">NextGen.</div>
+        <div class="logo">LCR Book</div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#features">Features</a></li>
@@ -364,49 +355,47 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <span class="badge">Version 2.0 Now Available</span>
-            <h1>Experience the Future of <br> <span>Mobile Technology</span></h1>
-            <p>Unlock your potential with our cutting-edge application. Designed for speed, security, and a seamless user experience.</p>
-            <button class="cta-button" onclick="downloadApp()">Download now</button>
+            <span class="badge">New Version Available</span>
+            <h1>Download the Official <br> <span>LCR Book App</span></h1>
+            <p>Get instant access to the LCR Book application. Secure, fast, and easy to use. Download the APK directly now.</p>
+            
+            <!-- Button 1: Hero CTA -->
+            <button class="cta-button" onclick="downloadApp()">Download APK Now</button>
         </div>
     </section>
 
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="section-header">
-            <h2>Why Choose Us?</h2>
-            <p style="color: var(--text-gray);">We provide the best tools to enhance your productivity.</p>
+            <h2>Key Features</h2>
+            <p style="color: var(--text-gray);">Everything you need in one place.</p>
         </div>
         
         <div class="grid-container">
-            <!-- Card 1 -->
             <div class="feature-card">
-                <div class="icon">⚡</div>
-                <h3>Lightning Fast</h3>
-                <p>Experience zero lag with our optimized core engine designed for high performance.</p>
+                <div class="icon">📚</div>
+                <h3>Complete Guide</h3>
+                <p>Access the full LCR Book content seamlessly on your mobile device.</p>
             </div>
-            <!-- Card 2 -->
             <div class="feature-card">
-                <div class="icon">🛡️</div>
-                <h3>Secure & Private</h3>
-                <p>Your data is encrypted end-to-end. We value your privacy above everything else.</p>
+                <div class="icon">🚀</div>
+                <h3>Fast Performance</h3>
+                <p>Optimized for all Android devices ensuring a smooth experience.</p>
             </div>
-            <!-- Card 3 -->
             <div class="feature-card">
-                <div class="icon">✨</div>
-                <h3>Intuitive UI</h3>
-                <p>A clean, modern interface that makes navigating through tasks a breeze.</p>
+                <div class="icon">📥</div>
+                <h3>Direct Download</h3>
+                <p>One-click download from our secure servers without any hassle.</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 NextGen App Inc. All rights reserved.</p>
+        <p>&copy; 2026 LCR Book. All rights reserved.</p>
     </footer>
 
-    <!-- Floating Download Button (Text + Icon) -->
+    <!-- Button 2: Floating Download Button -->
     <button class="floating-btn" onclick="downloadApp()">
-        <!-- SVG Download Icon -->
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/>
         </svg>
@@ -414,29 +403,31 @@
     </button>
 
     <script>
-        // --- 1. Mobile Menu Toggle ---
+        // --- Mobile Menu ---
         function toggleMenu() {
             const nav = document.querySelector('.nav-links');
             nav.classList.toggle('active');
         }
 
-        // Close menu when clicking a link
+        // Close menu on click
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 document.querySelector('.nav-links').classList.remove('active');
             });
         });
 
-        // --- 2. Download Action ---
+        // --- DOWNLOAD FUNCTION (UPDATED) ---
         function downloadApp() {
-            // Replace this with your actual file URL
-            // window.location.href = 'app-release.apk';
-            alert("Download starting... Thank you for choosing NextGen!");
+            // Direct Link to the APK file
+            const apkLink = "https://github.com/momtajbibi123/Lcr-book/raw/refs/heads/main/L%20C%20R%20Book.apk";
+            
+            // Trigger download
+            window.location.href = apkLink;
         }
 
-        // --- 3. Scroll Animations (Fade Up) ---
+        // --- Scroll Animation ---
         const observerOptions = {
-            threshold: 0.15, // Trigger when 15% of the element is visible
+            threshold: 0.15,
             rootMargin: "0px 0px -50px 0px"
         };
 
@@ -444,7 +435,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Animate only once
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
@@ -452,7 +443,6 @@
         document.querySelectorAll('.feature-card').forEach(card => {
             observer.observe(card);
         });
-
     </script>
 </body>
 </html>
