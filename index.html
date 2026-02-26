@@ -1,448 +1,177 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LCR Book - Official Download</title>
+    <title>Labor App Splash Screen</title>
     
-    <!-- Google Fonts for Premium Look -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- গুগল ফন্ট ইমপোর্ট (সুন্দর টেক্সট স্টাইলের জন্য) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
 
     <style>
-        /* --- 1. CSS Variables & Reset --- */
-        :root {
-            --primary-color: #6366f1; /* Indigo */
-            --accent-color: #ec4899; /* Pink/Magenta */
-            --dark-bg: #0f172a; /* Dark Slate */
-            --card-bg: #1e293b;
-            --text-light: #f8fafc;
-            --text-gray: #94a3b8;
-            --glass: rgba(15, 23, 42, 0.7);
-            --transition: all 0.3s ease-in-out;
-        }
-
+        /* বেসিক রিসেট এবং বডি স্টাইল */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--dark-bg);
-            color: var(--text-light);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        /* --- 2. Navigation (Glassmorphism) --- */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(to right, #818cf8, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            cursor: pointer;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-light);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Hamburger Menu (Mobile) */
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            gap: 6px;
-        }
-        
-        .bar {
-            width: 25px;
-            height: 2px;
-            background-color: white;
-            transition: var(--transition);
-        }
-
-        /* --- 3. Hero Section (Full Screen) --- */
-        .hero {
             height: 100vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            text-align: center;
-            padding: 0 20px;
-            background: radial-gradient(circle at top center, #1e1b4b 0%, #0f172a 70%);
-            position: relative;
+            align-items: center;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* সুন্দর নীল গ্র্যাডিয়েন্ট ব্যাকগ্রাউন্ড */
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
         }
 
-        /* Background Glow Effect */
-        .hero::before {
+        /* লোগো কন্টেইনার ডিজাইন */
+        .logo-container {
+            width: 120px;
+            height: 120px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: popIn 0.8s ease-out forwards; /* লোগো আসার অ্যানিমেশন */
+        }
+
+        /* লোগো ইমেজ বা আইকন */
+        .logo-img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+        }
+
+        /* টেক্সট ডিজাইন */
+        .app-title {
+            font-size: 2rem;
+            color: #ffffff;
+            letter-spacing: 2px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* অক্ষরগুলোর জন্য স্প্যান স্টাইল (জাভাস্ক্রিপ্ট দিয়ে তৈরি হবে) */
+        .app-title span {
+            opacity: 0;
+            display: inline-block;
+            transform: translateY(20px);
+            filter: blur(5px);
+            animation: textReveal 0.5s forwards;
+        }
+
+        /* অ্যানিমেশন কি-ফ্রেম (Keyframes) */
+        
+        /* লোগো পপ-আপ অ্যানিমেশন */
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            80% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* টেক্সট রিভিল অ্যানিমেশন */
+        @keyframes textReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        /* লোডিং বার (অপশনাল - দেখতে ভালো লাগে) */
+        .loader {
+            width: 150px;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loader::after {
             content: '';
             position: absolute;
-            width: 300px;
-            height: 300px;
-            background: var(--primary-color);
-            filter: blur(150px);
-            opacity: 0.2;
-            border-radius: 50%;
-            top: 20%;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 0;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            background: #ff9800; /* অরেঞ্জ কালার */
+            animation: loading 5s linear forwards;
         }
 
-        .hero-content {
-            z-index: 1;
-            max-width: 800px;
+        @keyframes loading {
+            to { width: 100%; }
         }
 
-        .badge {
-            display: inline-block;
-            padding: 8px 16px;
-            background: rgba(99, 102, 241, 0.1);
-            color: #818cf8;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            border: 1px solid rgba(99, 102, 241, 0.2);
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 0.8s ease forwards 0.2s;
-        }
-
-        .hero h1 span {
-            color: var(--primary-color);
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-gray);
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 0.8s ease forwards 0.4s;
-        }
-
-        .cta-button {
-            padding: 16px 32px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4);
-            transition: var(--transition);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 0.8s ease forwards 0.6s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px -5px rgba(236, 72, 153, 0.5);
-        }
-
-        /* --- 4. Features Section --- */
-        .features {
-            padding: 100px 8%;
-            background-color: var(--dark-bg);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-card {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: var(--transition);
-            opacity: 0;
-            transform: translateY(40px);
-        }
-
-        .feature-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .feature-card:hover {
-            border-color: var(--primary-color);
-            transform: translateY(-5px);
-        }
-
-        .icon {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            display: inline-block;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            color: var(--accent-color);
-        }
-
-        .feature-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 10px;
-        }
-
-        .feature-card p {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-        }
-
-        /* --- 5. Floating Download Button --- */
-        .floating-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--text-light);
-            color: var(--dark-bg);
-            padding: 15px 25px;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            z-index: 999;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            animation: subtlePulse 3s infinite;
-        }
-
-        .floating-btn svg {
-            width: 20px;
-            height: 20px;
-            fill: var(--primary-color);
-        }
-
-        .floating-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.15);
-            background: white;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: var(--text-gray);
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-
-        /* Animations */
-        @keyframes fadeUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes subtlePulse {
-            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
-            70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hamburger { display: flex; }
-            
-            .nav-links {
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: var(--card-bg);
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                gap: 20px;
-                transform: translateY(-150%);
-                transition: transform 0.3s ease-in-out;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            }
-
-            .nav-links.active { transform: translateY(0); }
-            
-            .floating-btn {
-                bottom: 20px;
-                right: 20px;
-                padding: 12px 20px;
-                font-size: 0.9rem;
-            }
+        /* মোবাইল রেস্পন্সিভনেস */
+        @media (max-width: 600px) {
+            .logo-container { width: 100px; height: 100px; }
+            .logo-img { width: 60px; height: 60px; }
+            .app-title { font-size: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">LCR Book</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="hamburger" onclick="toggleMenu()">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <span class="badge">New Version Available</span>
-            <h1>Download the Official <br> <span>LCR Book App</span></h1>
-            <p>Get instant access to the LCR Book application. Secure, fast, and easy to use. Download the APK directly now.</p>
-            
-            <!-- Button 1: Hero CTA -->
-            <button class="cta-button" onclick="downloadApp()">Download APK Now</button>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="section-header">
-            <h2>Key Features</h2>
-            <p style="color: var(--text-gray);">Everything you need in one place.</p>
-        </div>
-        
-        <div class="grid-container">
-            <div class="feature-card">
-                <div class="icon">📚</div>
-                <h3>Complete Guide</h3>
-                <p>Access the full LCR Book content seamlessly on your mobile device.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon">🚀</div>
-                <h3>Fast Performance</h3>
-                <p>Optimized for all Android devices ensuring a smooth experience.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon">📥</div>
-                <h3>Direct Download</h3>
-                <p>One-click download from our secure servers without any hassle.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 LCR Book. All rights reserved.</p>
-    </footer>
-
-    <!-- Button 2: Floating Download Button -->
-    <button class="floating-btn" onclick="downloadApp()">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/>
+    <!-- লোগো সেকশন -->
+    <div class="logo-container">
+        <!-- এখানে আপনি আপনার লোগো ইমেজের লিংক দিতে পারেন। এখন আমি একটি ডিফল্ট আইকন ব্যবহার করছি -->
+        <!-- উদাহরণ: <img src="your-logo.png" class="logo-img" alt="Logo"> -->
+        <svg class="logo-img" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 6H4V4H20V6ZM21 10H3V8H21V10ZM19 19H5V12H19V19ZM17 14H7V17H17V14Z" fill="#2a5298"/>
+            <path d="M12 2L15 4H9L12 2Z" fill="#ff9800"/>
         </svg>
-        Download App
-    </button>
+    </div>
+
+    <!-- টেক্সট সেকশন -->
+    <h1 class="app-title">Work Management</h1>
+
+    <!-- লোডিং বার -->
+    <div class="loader"></div>
 
     <script>
-        // --- Mobile Menu ---
-        function toggleMenu() {
-            const nav = document.querySelector('.nav-links');
-            nav.classList.toggle('active');
-        }
+        // জাভাস্ক্রিপ্ট লজিক
 
-        // Close menu on click
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelector('.nav-links').classList.remove('active');
-            });
-        });
-
-        // --- DOWNLOAD FUNCTION (UPDATED) ---
-        function downloadApp() {
-            // Direct Link to the APK file
-            const apkLink = "https://github.com/momtajbibi123/Lcr-book/raw/refs/heads/main/L%20C%20R%20Book.apk";
+        document.addEventListener("DOMContentLoaded", () => {
+            const titleElement = document.querySelector('.app-title');
+            const textToAnimate = titleElement.textContent;
             
-            // Trigger download
-            window.location.href = apkLink;
-        }
+            // টেক্সট খালি করে ফেলা যাতে আমরা স্প্যান ট্যাগ ঢোকাতে পারি
+            titleElement.textContent = '';
 
-        // --- Scroll Animation ---
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
+            // লুপ চালিয়ে প্রতিটি অক্ষরকে আলাদা <span> ট্যাগে ভাগ করা
+            for (let i = 0; i < textToAnimate.length; i++) {
+                const span = document.createElement('span');
+                
+                // স্পেস বা ফাঁকা জায়গা ঠিক রাখা
+                if(textToAnimate[i] === ' ') {
+                    span.innerHTML = '&nbsp;';
+                } else {
+                    span.textContent = textToAnimate[i];
                 }
-            });
-        }, observerOptions);
 
-        document.querySelectorAll('.feature-card').forEach(card => {
-            observer.observe(card);
+                // প্রতিটি অক্ষরের জন্য ডিলে (Delay) সেট করা
+                // লোগো আসার ০.৮ সেকেন্ড পর টেক্সট শুরু হবে
+                // প্রতিটি অক্ষর ০.১ সেকেন্ড পর পর আসবে
+                span.style.animationDelay = `${0.8 + (i * 0.1)}s`;
+                
+                titleElement.appendChild(span);
+            }
+
+            // ৫ সেকেন্ড পর home1.html পেজে রিডাইরেক্ট করা
+            setTimeout(() => {
+                window.location.href = 'home1.html';
+            }, 5000);
         });
     </script>
+
 </body>
 </html>
